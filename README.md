@@ -151,11 +151,13 @@ As the JupyterLab session is created via a batch job script you can cancel any i
 
 The JupyterLab session will finish when you manually cancel the job (`scancel <JOBID>`) or it runs out of allocated time. 
 
-##UEA HPC Information
+## UEA HPC - Further Information and Links
 
-The UEA HPC team have provided information on ADA's software (including conda and python) within their [HPC itranet pages](https://my.uea.ac.uk/divisions/it-and-computing-services/service-catalogue/research-it-services/hpc/ada-cluster/ada-software). If you have any issues I would recommending asking them as they are the experts - this is just a guide based on what I encountered when I first set up JupyterLabs myself.
+The UEA HPC team have provided information on ADA's software (including conda and python) within their [HPC itranet pages](https://my.uea.ac.uk/divisions/it-and-computing-services/service-catalogue/research-it-services/hpc/ada-cluster/ada-software). 
 
-The HPC team also have some virtual training on ADA, Slurm etc. which is worth a look and is located on [Planet eStream](https://utv.uea.ac.uk/Default.aspx?search=HPC&saml=1)
+The HPC team also have some virtual training on ADA, Slurm etc. which is worth a look and is located on [Planet eStream](https://utv.uea.ac.uk/Default.aspx?search=HPC&saml=1).
+
+If you have any issues I would recommend contacting the HPC team as they are the experts. The information provided here is based on what I encountered when I first set up JupyterLabs myself and is not endorsed by the UEA or HPC team in any way.
 
 
 

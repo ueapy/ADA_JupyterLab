@@ -20,7 +20,7 @@ This should update your .bashrc file to allow conda to work with shell level com
 To avoid python version conflicts between the node environment you are working in and the base conda environment on ADA you need to stop nested environment activation. To do this use:
 
 ```console
-conda config --set auto-activate-base false
+conda config –-set auto_activate_base false
 ```
 
 This should create a .condarc file with the nested environments turned off. 
@@ -63,14 +63,14 @@ To submit the JupyterLab instructions to ADA you need to create a batch job subm
 
 In this file areas **you will need to modify** are:
 
-- *Line 17*: Update `abc12def@ada.uea.ac.uk` where 'abc12def' should be your 8 digit UEA username.
+- *Line 26*: Update `abc12def@ada.uea.ac.uk` where 'abc12def' should be your 8 digit UEA username.
 
 In this file areas you may want to modify are:
 
 - *Line 3*: The ADA partition the job is being submitted to.
 - *Line 4*: The memory you are asking for (how much memory you think your JupyterLab session will use).
 - *Line 5*: How long you want the JupyterLab session to last.
-- *Line 6-8*: The jobname and output files (these are important as you will see in the next section).
+- *Line 6-8*: The job-name and output files (these are important).
 - *Line 11*: Which python version you are using, this should match your conda env python version. 
 
 There are three suitable partitions for running JupyterLab on ADA:
@@ -99,6 +99,8 @@ The job progress can be monitored using:
 ```console
 squeue -u <Your 8 digit username>
 ```
+
+Here can view all of your submitted jobs and their associated `JOBID`.
 
 The job can be killed using:
 

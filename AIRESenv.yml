@@ -1,0 +1,19 @@
+name: AIRESenv
+channels:
+  - defaults
+dependencies:
+  - seaborn
+  - matplotlib
+  - numpy
+  - jupyter
+  - netcdf4
+  - xlwt
+  - python=3.8.5
+  - xlrd
+  - cartopy=0.21
+  - owslib
+  - xarray
+  - ipython
+  - spyder
+  - dask
+  - pandas

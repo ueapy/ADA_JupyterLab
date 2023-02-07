@@ -1,7 +1,7 @@
 # Tips for running JupyterLab through the UEA's ADA
 
 ## Connect to ADA
-Log in to ADA following the [HPC teams instructions]([https://my.uea.ac.uk/divisions/it-and-computing-services/service-catalogue/research-it-services/hpc/ada-cluster/connecting-to-ada)
+Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisions/it-and-computing-services/service-catalogue/research-it-services/hpc/ada-cluster/connecting-to-ada)
 
 *Note:* Ensure you launch an interactive session for any conda environment configuration, etc., as these processes are too computationally expensive for the login node. To view the help documentation on interactive session within ADA use the command:
 
@@ -150,3 +150,12 @@ At this stage you should have a working JupyterLab session on a remote node with
 As the JupyterLab session is created via a batch job script you can cancel any interactive sessions and close login in nodes and your JupyterLab session will still be running. If you accidently close the browser just find the url again from the .err file and reloaded it. 
 
 The JupyterLab session will finish when you manually cancel the job (`scancel <JOBID>`) or it runs out of allocated time. 
+
+##UEA HPC Information
+
+The UEA HPC team have provided information on ADA's software (including conda and python) within their [HPC itranet pages](https://my.uea.ac.uk/divisions/it-and-computing-services/service-catalogue/research-it-services/hpc/ada-cluster/ada-software). If you have any issues I would recommending asking them as they are the experts - this is just a guide based on what I encountered when I first set up JupyterLabs myself.
+
+The HPC team also have some virtual training on ADA, Slurm etc. which is worth a look and is located on [Planet eStream](https://utv.uea.ac.uk/Default.aspx?search=HPC&saml=1)
+
+
+

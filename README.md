@@ -5,39 +5,25 @@ Log in to ADA following the [HPC teams instructions](https://my.uea.ac.uk/divisi
 
 *Note:* Ensure you launch an interactive session for any conda environment configuration, etc., as these processes are too computationally expensive for the login node. To view the help documentation on interactive session within ADA use the command:
 
+## Initial setup 
+
+### Load conda to be used interactively. 
+
 ```console
 interactive -h
 ```
-## Conda configuration
-
-Before you run conda within ADA you may need to add initialisation instructions to your .bashrc file. To do this use:
+Once in an interactive node you can view the available versions of python using:
 
 ```console
-conda init bash
+module spider python
 ```
-This should update your .bashrc file to allow conda to work with shell level commands (e.g. `conda activate`).
-
-To avoid python version conflicts between the node environment you are working in and the base conda environment on ADA you need to stop nested environment activation. To do this use:
+Select an available version of python anaconda (e.g. 3.8) and then load it using:
 
 ```console
-conda config –-set auto_activate_base false
+module add python/anaconda/2020.11/3.8
 ```
 
-This should create a .condarc file with the nested environments turned off. 
-
-To double check that there is no conflict of your python versions use the following commands:
-
-```console
-which python
-python -c 'import sys; print(sys.prefix)' 
-```
-The output should looks something like this: 
-
-![python_version_check](https://user-images.githubusercontent.com/111057180/217242277-83ae56cc-515b-4bfa-8a70-b3189a0e23b5.png)
-
-where the paths that should match are highlighted in a red box.
-
-## Create a conda environment for JupyterLab to use. 
+### Create a conda environment for JupyterLab to use. 
 
 Before you can submit a job to initialise a JupyterLab session you must make sure the conda environment you load exists. For this example I have used the environment provided in AIRESenv.yml - which should be suitable for running the python training courses on [UEApy](https://github.com/ueapy).
 
@@ -57,7 +43,27 @@ conda activate AIRESenv
 conda install -c conda-forge cartopy=0.21
 ```
 
-## Create a batch submission script for creating a JupyterLab session on ADA
+You may experience python version conflicts between the node environment you are working in and the base conda environment on ADA. If this happens then you need to stop nested environment activation. To do this use:
+
+```console
+conda config –-set auto_activate_base false
+```
+
+This creates a .condarc file with the nested environments turned off. 
+
+To double check that there is no conflict of your python versions use the following commands:
+
+```console
+which python
+python -c 'import sys; print(sys.prefix)' 
+```
+The output should looks something like this: 
+
+![python_version_check](https://user-images.githubusercontent.com/111057180/217242277-83ae56cc-515b-4bfa-8a70-b3189a0e23b5.png)
+
+where the paths that should match are highlighted in a red box.
+
+### Create a batch submission script
 
 To submit the JupyterLab instructions to ADA you need to create a batch job submission script. I have uploaded an example script - AIRESconda_sub.sh
 
@@ -73,14 +79,17 @@ In this file areas you may want to modify are:
 - *Line 6-8*: The job-name and output files (these are important).
 - *Line 11*: Which python version you are using, this should match your conda env python version. 
 
+## Submit your JupyterLab script
+
+Note: Now we are past the initial setup. For future sessions you can start at this step and submit the job from the login node. 
+
 There are three suitable partitions for running JupyterLab on ADA:
 
-| Partition | Max Time | Default Memory Per CPU
-| ----------- | ----------- | ----------- |
-| compute-24-128 | 7 days | 5144 |
-| compute-24-96 | 7 days | 3772 |
-| compute-64-512 | 7 days | 7975 |
-
+| Partition | Max Time | Default Memory Per CPU | Notes 
+| ----------- | ----------- | ----------- | ----------- |
+| compute-24-128 | 7 days | 5144 |  due to be decommisioned shortly |
+| compute-24-96 | 7 days | 3772 |  default partition |
+| compute-64-512 | 7 days | 7975 |                   |
 
 You can check how busy the partitions are using `snoderes`. For example:
 
@@ -158,6 +167,5 @@ The UEA HPC team have provided information on ADA's software (including conda an
 The HPC team also have some virtual training on ADA, Slurm etc. which is worth a look and is located on [Planet eStream](https://utv.uea.ac.uk/Default.aspx?search=HPC&saml=1).
 
 If you have any issues I would recommend contacting the HPC team as they are the experts. The information provided here is based on what I encountered when I first set up JupyterLabs myself and is not endorsed by the UEA or HPC team in any way.
-
 
 
